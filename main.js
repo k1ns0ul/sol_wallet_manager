@@ -5,7 +5,6 @@ const bs58 = require('bs58');
 
 const LAMPORTS_PER_SOL = BigInt(1000000000); // 10^9 lamports per SOL
 
-// Преобразовать количество SOL в lamports
 const solToLamports = (sol) => {
     return BigInt(Math.round(sol * LAMPORTS_PER_SOL));
 };
@@ -70,7 +69,7 @@ ipcMain.on('send-sol', async (event, senderPrivateKeyBase58, amount, wallets) =>
             throw new Error('Insufficient funds');
         }
 
-        const lamportsPerWallet = BigInt(lamports) / BigInt(wallets.length); // Равномерное распределение SOL между кошельками
+        const lamportsPerWallet = BigInt(lamports) / BigInt(wallets.length); 
 
         for (const wallet of wallets) {
             const recipientAccount = new PublicKey(wallet.publicKey);
@@ -110,7 +109,7 @@ ipcMain.on('return-sol', async (event, senderPublicKey, wallets) => {
                     SystemProgram.transfer({
                         fromPubkey: recipientAccount.publicKey,
                         toPubkey: senderAccount,
-                        lamports: balance - 5000n // Оставляем небольшой остаток для покрытия комиссии
+                        lamports: balance - 5000n 
                     })
                 );
 
