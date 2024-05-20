@@ -1,0 +1,16 @@
+{
+  "name": "solana-wallet-generator",
+  "version": "1.0.0",
+  "description": "Generate Solana wallets and send SOL to them",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@solana/web3.js": "^1.11.2",
+    "bs58": "^4.0.1",
+    "electron": "^13.0.1"
+  }
+}
